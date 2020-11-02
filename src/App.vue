@@ -1,17 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>hello</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from "axios";
+import KEYS from "./assets/keys";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  components: {},
+
+  methods: {
+    fetchData() {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${KEYS.TMDB_KEY}&language=en-US&page=1`
+        )
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
+  },
+  mounted() {
+    this.fetchData();
   }
-}
+};
 </script>
 
 <style>
