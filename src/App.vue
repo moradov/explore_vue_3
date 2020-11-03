@@ -1,6 +1,15 @@
 <template>
   <div class="container">
     <Controller @fetch-data="fetchData" />
+    <div class="movies-list" v-if="movies && movies.length > 0 ">
+      <MovieItem
+        v-for="movie in movies"
+        :key="movie.id"
+        :name="movie.name"
+        :overview="movie.overview"
+        :img_src="movie.poster_path"
+      />
+    </div>
   </div>
 </template>
 
@@ -8,10 +17,12 @@
 import axios from "axios";
 import KEYS from "./assets/keys";
 import Controller from "./components/Controller";
+import MovieItem from "./components/MovieItem";
 export default {
   name: "App",
   components: {
-    Controller
+    Controller,
+    MovieItem
   },
   data() {
     return {
@@ -54,5 +65,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 10px;
+  padding: 25px 0px;
 }
 </style>
