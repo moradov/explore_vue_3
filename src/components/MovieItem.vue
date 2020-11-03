@@ -7,7 +7,7 @@
       style="height : 400px"
     />
     <div class="card-body">
-      <h5 class="card-titme">{{name}}</h5>
+      <h3 class="card-titme">{{name}}</h3>
       <p class="card-text">{{overview.substring(0, 100) + "..." }}</p>
       <a href="#" class="btn btn-primary">View More</a>
     </div>

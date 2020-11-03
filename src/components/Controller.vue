@@ -1,5 +1,5 @@
 <template>
-  <div class="btn-group" role="group">
+  <div class="btn-group mb-5" role="group">
     <button
       v-for="item in controlsList"
       :key="item.id"
